@@ -1,17 +1,12 @@
 const express = require('express');
-
-const server = express();
+const app = express();
 
 app.use(express.json());
 
+const filmesRouter = require('./routes/filmes');
 
+app.use('/filmes', filmesRouter);
 
-
-
-
-
-
-
-
-
-server.listen(3000);
+app.listen(3000, () => {
+    console.log('Servidor rodando na porta 3000');
+});
